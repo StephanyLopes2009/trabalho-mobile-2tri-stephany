@@ -25,15 +25,52 @@ function App() {
     setMessage('');
   };
 
-  const getRandomWord = () => {
-    const words = [
-      "ABRIR", "AMIGO", "BANHO", "CAIXA", "DIZER",
-      "FALAR", "GOSTO", "HORAS", "JOGAR", "LIVRO",
-      "NOITE", "OCUPA", "PAPEL", "QUASE",
-      "RADIO", "SABER", "TARDE", "UNIDO", "VIVER"
-    ];
-    return words[Math.floor(Math.random() * words.length)];
-  };
+ const getRandomWord = () => {
+  const words = [
+    "ABRIR", "ACIMA", "ADEUS", "AGORA", "AJUDA",
+    "AMIGO", "ANDAR", "ANTES", "APOIO", "AREIA",
+    "ASSIM", "ATRAS", "AVIAO", "BAILE", "BANCO",
+    "BANHO", "BARCO", "BEBER", "BEIJO", "BOLSA",
+    "BRAVO", "BRISA", "CABER", "CAIXA", "CALMA",
+    "CAMPO", "CANTO", "CARRO", "CASAL", "CEDER",
+    "CERTO", "CHAVE", "CHUVA", "CLARO", "COBRA",
+    "COMER", "CORDA", "CORPO", "COURO", "CRIAR",
+    "CULPA", "CURSO", "DANCA", "DEIXA", "DIZER",
+    "DOBRA", "DOIDO", "DONDO", "DORME", "ENTRA",
+    "ENVIO", "ERROS", "ESCOL", "ESTOU", "FALAR",
+    "FALTA", "FAROL", "FESTA", "FILME", "FINAL",
+    "FOGAO", "FORTE", "FOTOS", "FRASE", "FRUTA",
+    "FUNDO", "GANHO", "GATOS", "GELAR", "GERAL",
+    "GIRAR", "GOSTO", "GRITO", "GRUPO", "HOTEL",
+    "HORAS", "IDADE", "IGUAL", "ILHAS", "IMPAR",
+    "JANEL", "JOGAR", "JOVEM", "JUSTO", "LADOS",
+    "LARGO", "LEITE", "LEGAL", "LENTO", "LIGAR",
+    "LIMPO", "LINDO", "LIVRO", "LOUCO", "LUGAR",
+    "LUTAR", "MACIO", "MAGRO", "MAIOR", "MARCA",
+    "MEDOS", "MENTE", "MESMO", "METAL", "MEXER",
+    "MIRAR", "MOEDA", "MORRO", "MOVER", "MUITO",
+    "MUNDO", "MUSGO", "NADAR", "NAVIO", "NEGRO",
+    "NOITE", "NORTE", "NOVOS", "NUVEM", "OCUPA",
+    "OLHAR", "ONTEM", "OPCAO", "ORELHA", "PAGAR",
+    "PALCO", "PAPEL", "PARAR", "PARTE", "PASSO",
+    "PEDRA", "PEGAR", "PERTO", "PISTA", "PODER",
+    "PORCO", "PORTA", "PRATO", "PRETO", "PROVA",
+    "PULAR", "QUASE", "QUEDA", "QUERO", "RADIO",
+    "RAIVA", "RAMOS", "RAPAZ", "REAIS", "REDEA",
+    "REINO", "RESTO", "RIRAR", "ROUPA", "SABER",
+    "SABOR", "SAIDA", "SALTO", "SANTO", "SAUDE",
+    "SEGUE", "SENHA", "SERIE", "SERVE", "SINAL",
+    "SOBRA", "SONHO", "SORTE", "SUAVE", "SUBIR",
+    "TARDE", "TECLA", "TEMPO", "TENIS", "TERMO",
+    "TEXTO", "TINTA", "TIRAR", "TOCAR", "TORRE",
+    "TRAJE", "TREVO", "TROCA", "TURMA", "UNIDO",
+    "UNIAO", "USADO", "VALOR", "VELHO", "VENDA",
+    "VERBO", "VERDE", "VERSO", "VIADA", "VIAJA",
+    "VIDEO", "VIRAR", "VIVER", "VOLTA", "VOTAR"
+  ];
+
+  return words[Math.floor(Math.random() * words.length)];
+};
 
   const handleKeyPress = (key) => {
     if (gameOver) return;
@@ -175,6 +212,7 @@ function App() {
         gameOver={gameOver}
       />
       <div className='used-letters'>Letras não presentes: {Array.from(usedLetters).join(', ')}</div>
+      <button>Modo dark</button>
       <button id="help-btn" className="help-btn" onClick={() => setShowModal(true)}>?</button>
       <HelpModal show={showModal} onClose={() => setShowModal(false)} />
       <div id="message" className="message">{message}</div>
