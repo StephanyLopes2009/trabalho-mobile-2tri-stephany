@@ -13,6 +13,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [targetWord, setTargetWord] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [vitorias, setVitorias] = useState(0);
 
   const initGame = () => {
     setTargetWord(getRandomWord());
@@ -181,6 +182,13 @@ function App() {
     }
   };
 
+
+  const contadorDeVitorias = () => {
+    return vitorias;
+  };
+
+
+
   useEffect(() => {
     initGame(); // Inicializa o jogo quando o componente é montado
   }, []);
@@ -211,8 +219,10 @@ function App() {
         usedLetters={usedLetters}
         gameOver={gameOver}
       />
+      
       <div className='used-letters'>Letras não presentes: {Array.from(usedLetters).join(', ')}</div>
-      <button>Modo dark</button>
+      <p className='cor-contador-vitoria'>Vitorias {contadorDeVitorias()}</p>
+      <button className='botao-modo-dark'>Icone com lua Modo dark</button>
       <button id="help-btn" className="help-btn" onClick={() => setShowModal(true)}>?</button>
       <HelpModal show={showModal} onClose={() => setShowModal(false)} />
       <div id="message" className="message">{message}</div>

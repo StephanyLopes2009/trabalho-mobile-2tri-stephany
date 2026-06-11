@@ -223,3 +223,46 @@ h1 {
         font-size: 1.5rem;
     }
 }
+
+/* ==================================
+   FUNCIONALIDADES NOVAS
+   ================================== */
+
+/* Estilo do Contador de Vitórias */
+.cor-contador-vitoria {
+    color: #ffffff; /* Texto branco para destacar no fundo escuro */
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #6aaa64; /* Verde oficial do Termo */
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do Botão de Modo Dark */
+.botao-modo-dark {
+    background-color: #787c7e; /* Cinza oficial do jogo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 15px auto; /* Centraliza o botão na tela */
+    transition: background-color 0.2s ease;
+}
+
+.botao-modo-dark:hover {
+    background-color: #5a5e60; /* Fica um pouco mais escuro ao passar o mouse */
+}
+
+/* CORREÇÃO EXTRA: Ajuste do título para aparecer no fundo escuro */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff !important; /* Força o título a ficar branco e visível */
+}
