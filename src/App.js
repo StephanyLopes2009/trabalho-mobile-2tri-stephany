@@ -14,6 +14,7 @@ function App() {
   const [targetWord, setTargetWord] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [vitorias, setVitorias] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const initGame = () => {
     setTargetWord(getRandomWord());
@@ -120,11 +121,11 @@ function App() {
       });
       setMessage('Acertou!');
       setGameOver(true);
-
+      setVitorias(Vitorias + 1);
       // Reiniciar o jogo após 2 segundos
       setTimeout(initGame, 2000);
     } else {
-      // Palavra incorreta, atualizar o status das células
+      // Palavra incorreta, atualizar o status das célulasS
       let guessStatus = Array(5).fill('wrong');
       const targetLetters = targetWord.split('');
 
@@ -183,10 +184,15 @@ function App() {
   };
 
 
-  const contadorDeVitorias = () => {
+  const contadorDeDerrotas = () => {
     return vitorias;
   };
 
+  const mudaTema = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle('dark-theme');
+  };
+  
 
 
   useEffect(() => {
@@ -222,12 +228,13 @@ function App() {
       
       <div className='used-letters'>Letras não presentes: {Array.from(usedLetters).join(', ')}</div>
       <p className='cor-contador-vitoria'>Vitorias {contadorDeVitorias()}</p>
-      <button className='botao-modo-dark'>Icone com lua Modo dark</button>
+      <button className='botao-modo-dark' onClick={() => mudaTema()}>
+      {isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Dark'}
+      </button>
       <button id="help-btn" className="help-btn" onClick={() => setShowModal(true)}>?</button>
       <HelpModal show={showModal} onClose={() => setShowModal(false)} />
       <div id="message" className="message">{message}</div>
     </div>
   );
 }
-
 export default App;

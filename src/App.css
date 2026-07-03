@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #393434;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais limpa e moderna */
+    background-color: #393434; /* Seu fundo original mantido */
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,13 +14,16 @@ body {
     text-align: center;
     max-width: 500px;
     width: 100%;
-    padding: 20px;
+    padding: 24px; /* Ajuste leve de espaçamento */
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2.8rem; /* Um pouco mais imponente */
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #ffffff !important; /* Mantido em branco para leitura no seu fundo escuro */
+    text-transform: uppercase;
 }
 
 .game-container {
@@ -30,14 +33,14 @@ h1 {
 .board {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
-    grid-gap: 5px;
+    grid-gap: 6px; /* Espaçamento levemente maior entre as linhas */
     margin-bottom: 20px;
 }
 
 .row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
+    grid-gap: 6px; /* Espaçamento levemente maior entre os quadrados */
 }
 
 .cell {
@@ -50,10 +53,11 @@ h1 {
     font-weight: bold;
     background-color: #fff;
     border: 2px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px; /* Cantos um pouco mais arredondados e modernos */
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out; /* Transição mais rápida e responsiva */
     position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil interna */
 }
 
 .cell.filled {
@@ -64,40 +68,27 @@ h1 {
 .cell.active::after {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 10%;
-    width: 80%;
-    height: 2px;
+    bottom: 6px;
+    left: 15%;
+    width: 70%;
+    height: 3px; /* Indicador ligeiramente mais espesso */
     background-color: #333;
     animation: blink 1s infinite;
+    border-radius: 2px;
 }
 
 @keyframes pop {
-    0% {
-        transform: scale(0.8);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(0.85); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
 }
 
+/* Suas cores originais de validação intocadas */
 .cell.right {
     background-color: #6aaa64;
     color: white;
@@ -118,51 +109,65 @@ h1 {
 
 .message {
     height: 20px;
-    margin: 45px 0;
+    margin: 35px 0;
     font-weight: bold;
     color: #6aaa64;
+    font-size: 1.1rem;
 }
 
 .used-letters {
-    margin-top: 45px;
-    font-size: 0.9rem;
-    color: #787c7e;
+    margin-top: 35px;
+    font-size: 0.95rem;
+    color: #b5b5b5; /* Tom de cinza mais claro para contrastar melhor com seu fundo */
+    letter-spacing: 0.5px;
 }
 
+/* Botão de Ajuda flutuante com efeito suave */
 .help-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background-color: #6aaa64;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.help-btn:hover {
+    transform: scale(1.1); /* Sutil efeito de crescer ao passar o mouse */
+    background-color: #5b9655;
+}
+
+/* Modal com cantos mais modernos e sombra suave */
 .modal {
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo sutilmente mais escuro para focar no modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px; /* Formato com cantos mais arredondados */
+    max-width: 460px;
     width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra elegante */
 }
 
 .close {
@@ -171,6 +176,7 @@ h1 {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 20px;
 }
 
 .close:hover {
@@ -179,23 +185,24 @@ h1 {
 
 .example {
     display: flex;
-    gap: 5px;
-    margin: 15px 0;
+    gap: 6px;
+    margin: 18px 0;
     justify-content: center;
 }
 
 .example .letter {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     background-color: #fff;
     border: 2px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
+/* Cores originais dos exemplos mantidas */
 .letter.right {
     background-color: #6aaa64;
     color: white;
@@ -215,54 +222,79 @@ h1 {
 }
 
 .align-center-flex {
+    display: flex;
     align-items: center;
 }
 
 @media (max-width: 500px) {
     .cell {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 }
 
 /* ==================================
-   FUNCIONALIDADES NOVAS
+   SUAS NOVAS FUNCIONALIDADES (FORMATO APERFEIÇOADO)
    ================================== */
 
-/* Estilo do Contador de Vitórias */
+/* Contador de Vitórias com formato pílula arredondado */
 .cor-contador-vitoria {
-    color: #ffffff; /* Texto branco para destacar no fundo escuro */
-    font-size: 1.2rem;
+    color: #ffffff;
+    font-size: 1rem;
     font-weight: bold;
-    background-color: #6aaa64; /* Verde oficial do Termo */
-    padding: 8px 16px;
-    border-radius: 20px;
+    background-color: #bf8fe6;
+    padding: 8px 20px;
+    border-radius: 50px; /* Formato oval/pílula moderno */
     display: inline-block;
     margin: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* Estilo do Botão de Modo Dark */
+/* Botão de Modo Dark com formato arredondado moderno */
 .botao-modo-dark {
-    background-color: #787c7e; /* Cinza oficial do jogo */
-    color: white;
+    background-color: #f5fcff;
+    color: rgb(96, 43, 182);
     border: none;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 10px 24px;
+    font-size: 0.85rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px; /* Formato oval/pílula moderno */
     cursor: pointer;
     display: block;
-    margin: 15px auto; /* Centraliza o botão na tela */
-    transition: background-color 0.2s ease;
+    margin: 20px auto;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
+/* CORREÇÃO AQUI: Fundo muda para o roxo e o texto fica branco ao passar o mouse */
 .botao-modo-dark:hover {
-    background-color: #5a5e60; /* Fica um pouco mais escuro ao passar o mouse */
+    background-color: rgb(96, 43, 182); 
+    color: #ffffff; 
+    transform: translateY(-2px); /* Efeito suave de flutuar */
+    box-shadow: 0 6px 12px rgba(96, 43, 182, 0.3); /* Sombra roxa sutil */
+}
+/* ==================================
+   ESTILOS APLICADOS NO MODO DARK
+   ================================== */
+   body.dark-theme {
+    background-color: #121213; /* Fundo preto fosco do Termo */
+    color: #ffffff; /* Texto geral fica branco */
 }
 
-/* CORREÇÃO EXTRA: Ajuste do título para aparecer no fundo escuro */
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ffffff !important; /* Força o título a ficar branco e visível */
+/* Quando estiver no modo dark, as células vazias ganham bordas mais escuras */
+body.dark-theme .cell {
+    background-color: transparent;
+    border-color: #3a3a3c;
+    color: #ffffff;
+}
+
+/* Quando estiver no modo dark, o modal também fica escuro */
+body.dark-theme .modal-content {
+    background-color: #1e1e1f;
+    color: #ffffff;
+    border: 1px solid #3a3a3c;
+}
+
+body.dark-theme .example .letter {
+    background-color: transparent;
+    border-color: #3a3a3c;
+    color: #ffffff;
 }
